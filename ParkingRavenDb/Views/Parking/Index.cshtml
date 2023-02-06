@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ParkingRavenDb.Models.Parking>
+
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h1>Parking areas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-action="Payment">Count Payment</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkingAreaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekdaysHourlyRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeekendHourlyRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DicountPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingAreaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeekdaysHourlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeekendHourlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DicountPercentage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@model ParkingRavenDb.Models.PaymentVM
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h1>Payment</h1>
+
+<p>
+    <a asp-action="Index">Back to list</a>
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Payment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <th>
+                    Parking area
+                    <select asp-for="Selected" class="form-control" asp-items="Model.ParkingList"></select>
+                </th>
+            </div>
+
+            <div class="form-group">
+                <th>
+                    Current day<input id="parkingdate" type="date" name="ParkingDate" />
+                </th>
+                <th>
+                Date from: <input id="timefrom" type="time" name="TimeFrom" />
+                </th>
+                <th>
+                Date to: <input id="timeto" type="time" name="TimeTo" />
+                </th>
+                <th>
+                How much to pay: @ViewData["amountForPay"]
+                </th>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
