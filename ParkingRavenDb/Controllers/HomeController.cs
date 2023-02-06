@@ -17,29 +17,7 @@ namespace ParkingRavenDb.Controllers
 
         public IActionResult Index()
         {
-            using (var documentstore = new DocumentStore
-            {
-                Urls = new[] { "http://127.0.0.1:8080/" },
-                Database = "Parking"
-            }.Initialize())
-
-            using (var session = documentstore.OpenSession())
-            {
-                /*
-                session.Store(new Parking
-                {
-                    ParkingAreaName = "Parking Name 1",
-                    WeekdaysHourlyRate = 2.5m,
-                    WeekendHourlyRate = 5.2m,
-                    DicountPercentage = 10
-
-                });
-
-                session.SaveChanges();
-                
-                var allParking = session.Query<Parking>().ToArray();
-                */
-            }
+          
             return View();
         }
 
